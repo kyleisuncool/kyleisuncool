@@ -1,0 +1,31 @@
+Most of what I build for an organization is invisible — memory, models, positioning. But one deliverable keeps coming out the other end of engagements, visible and shareable: a pitch deck that isn't a slide file at all. It's a small website, and building it that way has proven itself enough times to write down as a pattern.
+
+## The shape of it
+
+Organizational context goes in. A navigable 2D HTML deck comes out. In between:
+
+1. **A content brief becomes a slide map** — rows and columns, not a linear sequence. Rows are the narrative beats; columns are depth. Arrow down to follow the story; arrow right to go deeper on any beat, then rejoin the spine. An investor who wants the ninety-second version and one who wants the twenty-minute version use the same artifact.
+2. **A fixed 1920×1080 stage that scales itself** to whatever screen it lands on — laptop, boardroom TV, a phone held sideways. No build step, no framework. HTML, CSS, and two small scripts: one for the stage, one for the grid navigation.
+3. **A design temperature decision** — each deck gets a documented design system with named tokens, so the deck, the one-pager, and the website that follow all speak the same visual language. I keep two working temperatures on the shelf and derive from there.
+4. **A handoff document in the repo root** — written for whoever picks the deck up cold, including AI tools: how to run it, how the navigation works, the slide map, the CSS glossary, what's still pending. The deck stays maintainable after I'm gone. This file costs an hour and is the difference between an artifact and a dependency on me.
+5. **Git for history, a static host for the URL.** The deck deploys like any site. Sharing it is sending a link; updating it is a push. No version-seventeen-final-FINAL email chains.
+
+## Why not just use slides?
+
+Because slides flatten the audience. A slide file has one path through it, so you end up maintaining three near-identical decks for three audiences, and they drift. The 2D grid holds one canonical deck where depth is opt-in — the structure itself does the audience-carving.
+
+Because a URL behaves better than an attachment. It's always the current version, it can't be forwarded stale, and you can watch a deck evolve through git history instead of a downloads folder.
+
+And because the deck inherits the design system instead of approximating it. The same tokens that style the website style the deck. When everything an organization ships looks like it came from the same hand, that coherence *is* the credibility argument.
+
+## Where it's been proven
+
+The pattern has produced four decks across two organizations so far: two investor-facing decks for a regenerative land development in Texas — including a thirty-two-slide master deck that's been in front of investors since June — and two for a builder community in Austin. The components carried over cleanly each time: the stage and navigation scripts moved unchanged, the design system swapped, the handoff document template held.
+
+That's the test of a pattern versus a one-off: the second organization's deck took a fraction of the first one's time, and none of the savings came from cutting corners — it came from not re-deciding solved problems.
+
+## What an engagement needs to get one
+
+Four inputs: a content brief (what story, for whom), an asset library (the renders and photography that give slides their atmosphere), the financial and narrative substance (this is where the embedded work pays off — the deck is downstream of real institutional memory), and one design-temperature decision.
+
+Given those, the deck is days, not weeks. The reason it's fast is everything underneath it: the pattern is reusable, but it only works because the context it draws on is already organized. That's the real product. The deck is just the visible end of it.

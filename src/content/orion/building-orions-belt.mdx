@@ -1,0 +1,57 @@
+Orion's Belt is the dashboard that sits on top of Orion — a Next.js app running locally that reads the vault's markdown files straight off the filesystem and renders them as a command center: people follow-up, project status, threads, decisions, operation log, knowledge graph. No database. No sync job. Just files, parsed at request time.
+
+I built the first version myself. It worked, but it had problems I knew about and problems I hadn't caught. Some pages lost data. Some never showed data they had access to. The knowledge graph lived in a separate tab, disconnected from everything. The dashboard was counting down to a deadline that had passed months ago.
+
+So I handed the codebase to Claude Fable 5 across two sessions and asked it to make the app actually understand the vault. This is the record.
+
+## Session 1: the knowledge graph
+
+The first session had one focus: a force-directed visualization of the whole vault — people, projects, areas, threads, decisions, connected by the edges that already exist in the markdown as wikilinks, frontmatter references, and shared membership.
+
+What came out was more than a graph:
+
+- **Force-directed layout** with a physics simulation, positions cached so it doesn't rerun on every request
+- **Focus mode** — click any node and the graph recenters, dims everything unrelated, and opens a detail panel with a direct link to the full page
+- **Attention overlay** — the same urgency signals the dashboard uses (overdue follow-ups, stale projects, quiet threads) rendered spatially, with jump links
+- **A hygiene tab** — the graph knows which nodes are orphaned, which wikilinks point at files that don't exist, which names are inconsistent across the vault
+
+The graph turned out to be a diagnostic tool wearing a visualization's clothes. That session ran out of context before anything else could happen.
+
+## Session 2: the overhaul
+
+The second session opened wider: survey everything, show me a plan, then execute. The model read the codebase, read the vault, and came back with a six-phase plan. I approved it.
+
+**Foundation first.** Every request had been synchronously re-parsing a couple hundred vault files; detail pages parsed the whole collection just to find one record. A two-layer cache fixed it. Several parsers were quietly discarding data — thread states truncated to one line, decision rationales cut off, an operation log capped at 20 of 116 entries. All made lossless. A config comment claimed routes rendered at request time while the routes prerendered at build time; the contradiction got resolved in favor of the truth the app needed — the vault changes constantly, so prerendering is wrong.
+
+**Then the dashboard**, rebuilt from scratch: the dead countdown replaced by a banner that reads real deadlines from the vault, attention signals extended to drifting threads and stalled decisions, new tiles for the unprocessed-capture queue and vault health.
+
+**Then every existing page** — filters that existed in parsers but never rendered, detail pages that finally show full histories, related-content sections resolved by the same logic the graph uses.
+
+**Then three pages that didn't exist**: an inbox queue for unprocessed captures, a health dashboard trending the vault's audit reports over time, and a library for research and drafts.
+
+**Then a command palette** — a global fuzzy search over every entity in the vault, opened with a keystroke from anywhere, built by indexing every parser's output at startup and ranking matches client-side.
+
+## The numbers
+
+| Metric | Before | After |
+|---|---|---|
+| Log entries visible | 20, truncated | 116, fully rendered |
+| Contact history shown | capped at 3 | all of it |
+| Detail text | first line only | full sections |
+| Vault re-parses | every request | once per 5-second window |
+| App routes | 7 | 15 |
+| Lines added | — | 3,775 |
+
+## What stood out
+
+**It read before it wrote.** The plan was grounded in what actually existed — not a generic template dropped on top.
+
+**It found problems I hadn't named.** A field that always held the wrong value, a config contradiction — neither was in my request. Both got noted and fixed in passing.
+
+**It held the constraint.** Across six phases it never added a database, an API route, or a sync job. The architecture — vault as source of truth, app as read layer — survived every feature. Where interactivity was needed, data flowed from server to client and got filtered there.
+
+**It committed as it went.** Each phase landed as an atomic commit. The history reads like a changelog, and the type checker stayed clean the whole way.
+
+Two sessions, one finished tool. The experience was less "AI completing a task" and more "a very fast, very attentive collaborator who read everything first." The vault got a spatial layer, the app got honest about its data, and the whole thing still runs on nothing but markdown files and a filesystem.
+
+Worth doing again — and this journal is where that happens.
