@@ -37,7 +37,7 @@ export default function Footer() {
             YouTube
           </a>
           <a
-            href="mailto:ksowards@mac.com"
+            href="mailto:kyle@kyleisun.cool"
             className="text-on-dark-soft hover:text-on-dark transition-colors"
           >
             Email

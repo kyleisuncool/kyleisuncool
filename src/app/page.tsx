@@ -181,10 +181,10 @@ export default function Home() {
             Working on something that needs to get serious?
           </p>
           <a
-            href="mailto:ksowards@mac.com"
+            href="mailto:kyle@kyleisun.cool"
             className="inline-flex items-center gap-2 text-lg font-medium text-on-dark hover:text-primary-disabled transition-colors border-b border-on-dark-soft hover:border-primary-disabled pb-1"
           >
-            ksowards@mac.com →
+            kyle@kyleisun.cool →
           </a>
         </div>
       </section>
