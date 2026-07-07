@@ -10,7 +10,7 @@ export default function CaseFileRow({ study }: { study: CaseStudy }) {
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap items-center gap-3 mb-2">
-          <h2 className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors">
+          <h2 className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors text-balance">
             {study.title}
           </h2>
           {study.status === 'draft' && (

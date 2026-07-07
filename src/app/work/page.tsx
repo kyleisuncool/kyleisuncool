@@ -15,7 +15,7 @@ export default function WorkPage() {
         <p className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
           Case files
         </p>
-        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4 text-balance">
           The work
         </h1>
         <p className="text-base text-body max-w-lg leading-relaxed">

@@ -69,7 +69,7 @@ export default function Home() {
             <p className="font-mono text-xs uppercase tracking-wider text-primary mb-6">
               Forward deployment
             </p>
-            <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-ink leading-[1.02] mb-8">
+            <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-ink leading-[1.02] mb-8 text-balance">
               I go in first.
             </h1>
             <p className="text-lg text-body leading-relaxed mb-10 max-w-xl">
@@ -112,7 +112,7 @@ export default function Home() {
           {workPrinciples.map((item, i) => (
             <div key={item.title} className="grid md:grid-cols-[3rem_1fr_2fr] gap-4 md:gap-8 py-8 border-b border-hairline">
               <p className="font-mono text-sm text-primary">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="font-display text-xl font-bold tracking-tight text-ink">
+              <h3 className="font-display text-xl font-bold tracking-tight text-ink text-balance">
                 {item.title}
               </h3>
               <p className="text-sm text-body leading-relaxed max-w-md">{item.body}</p>
@@ -161,7 +161,7 @@ export default function Home() {
                       </span>
                     )}
                   </span>
-                  <span className="font-display text-xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors block mb-1">
+                  <span className="font-display text-xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors block mb-1 text-balance">
                     {item.title}
                   </span>
                   <span className="text-sm text-body leading-relaxed max-w-xl block">
@@ -177,7 +177,7 @@ export default function Home() {
       {/* Contact — typographic, not a boxed CTA */}
       <section className="bg-surface-dark">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-24">
-          <p className="font-display text-3xl md:text-4xl font-bold tracking-tight text-on-dark mb-6 max-w-lg">
+          <p className="font-display text-3xl md:text-4xl font-bold tracking-tight text-on-dark mb-6 max-w-lg text-balance">
             Working on something that needs to get serious?
           </p>
           <a

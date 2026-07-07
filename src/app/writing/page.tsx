@@ -15,7 +15,7 @@ export default function WritingPage() {
         <p className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
           Writing
         </p>
-        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4 text-balance">
           Essays &amp; patterns
         </h1>
         <p className="text-base text-body max-w-lg leading-relaxed">
@@ -39,7 +39,7 @@ export default function WritingPage() {
               </span>
               <span className="flex-1">
                 <span className="flex items-center gap-3 mb-2">
-                  <span className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors">
+                  <span className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors text-balance">
                     {essay.title}
                   </span>
                   {essay.kind === 'pattern' && (

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getVisibleJournalEntries } from '@/lib/orion-journal'
+import BeltMark from '@/components/BeltMark'
 
 export const metadata = {
   title: 'Orion — kyleisun.cool',
@@ -38,24 +39,27 @@ export default function OrionPage() {
   const entries = getVisibleJournalEntries()
 
   return (
-    <>
+    <div className="orion-dark">
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 py-20 md:py-28">
-        <div className="max-w-2xl">
+        <div className="flex flex-col items-center text-center">
+          <BeltMark className="w-72 md:w-80 h-auto mb-8" />
           <p className="font-mono text-xs uppercase tracking-wider text-primary mb-6">
             Orion
           </p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-ink leading-[1.05] mb-8">
+          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-ink leading-[1.05] mb-10 max-w-2xl text-balance">
             The system behind the work.
           </h1>
-          <p className="text-lg text-body leading-relaxed mb-5 max-w-xl">
+        </div>
+        <div className="max-w-xl mx-auto text-left">
+          <p className="text-lg text-body leading-relaxed mb-5">
             Orion is an operating system for an organization&apos;s memory — a
             plain-text knowledge vault paired with an AI operating layer. It tracks
             the people, projects, decisions, and cross-cutting risks of every
             engagement, and it compounds: every conversation, every document, every
             signal gets filed, linked, and kept current.
           </p>
-          <p className="text-lg text-body leading-relaxed max-w-xl">
+          <p className="text-lg text-body leading-relaxed">
             It&apos;s not a note-taking app. It&apos;s how one person holds the
             complete picture of an organization — and it was built in public, during
             a live engagement, because the engagement demanded it.
@@ -74,7 +78,7 @@ export default function OrionPage() {
           {capabilities.map((item, i) => (
             <div key={item.title} className="grid md:grid-cols-[3rem_1fr_2fr] gap-4 md:gap-8 py-8 border-b border-hairline">
               <p className="font-mono text-sm text-primary">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="font-display text-xl font-bold tracking-tight text-ink">
+              <h3 className="font-display text-xl font-bold tracking-tight text-ink text-balance">
                 {item.title}
               </h3>
               <p className="text-sm text-body leading-relaxed max-w-md">{item.body}</p>
@@ -84,9 +88,9 @@ export default function OrionPage() {
       </section>
 
       {/* Why it exists */}
-      <section className="bg-surface-dark">
+      <section className="bg-surface-card">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-24">
-          <p className="font-display text-3xl md:text-4xl font-bold tracking-tight text-on-dark max-w-2xl">
+          <p className="font-display text-3xl md:text-4xl font-bold tracking-tight text-ink max-w-2xl text-balance">
             The vault is the tool. The judgment is the service.
           </p>
         </div>
@@ -118,7 +122,7 @@ export default function OrionPage() {
                 </span>
                 <span className="flex-1">
                   <span className="flex items-center gap-3 mb-2">
-                    <span className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors">
+                    <span className="font-display text-2xl font-bold tracking-tight text-ink group-hover:text-primary transition-colors text-balance">
                       {entry.title}
                     </span>
                     {entry.status === 'draft' && (
@@ -136,6 +140,6 @@ export default function OrionPage() {
           </div>
         )}
       </section>
-    </>
+    </div>
   )
 }

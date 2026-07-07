@@ -60,7 +60,7 @@ export default async function EssayPage({ params }: Props) {
             </span>
           )}
         </div>
-        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4 text-balance">
           {essay.title}
         </h1>
         <p className="text-base text-body leading-relaxed">{essay.description}</p>

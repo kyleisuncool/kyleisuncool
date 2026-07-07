@@ -68,7 +68,7 @@ export default async function CaseStudyPage({ params }: Props) {
               </span>
             )}
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4 text-balance">
             {study.title}
           </h1>
           <p className="text-lg font-medium text-muted mb-4">{study.subtitle}</p>

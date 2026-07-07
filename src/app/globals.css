@@ -72,6 +72,26 @@ body {
   vertical-align: middle;
 }
 
+/* Orion Dark Mode — scoped token remap. Everything nested (including shared
+   MDX typography and Motif/badge components) inherits these automatically;
+   no other file needs to know it's rendering inside a dark section. */
+.orion-dark {
+  --color-ink: var(--color-on-dark);
+  --color-body: var(--color-on-dark-soft);
+  --color-body-strong: var(--color-on-dark);
+  --color-muted: var(--color-on-dark-soft);
+  --color-muted-soft: oklch(55% 0.02 250);
+  --color-hairline: oklch(30% 0.02 250);
+  --color-hairline-soft: oklch(26% 0.02 250);
+  --color-surface-soft: var(--color-surface-dark-elevated);
+  --color-surface-card: oklch(24% 0.025 250);
+  --color-surface-cream-strong: oklch(27% 0.025 250);
+  --color-primary: oklch(62% 0.14 250);
+  --color-primary-active: oklch(70% 0.13 250);
+  background-color: var(--color-surface-dark);
+  color: var(--color-on-dark);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

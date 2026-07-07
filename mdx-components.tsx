@@ -2,17 +2,17 @@ import type { MDXComponents } from 'mdx/types'
 
 const components: MDXComponents = {
   h1: ({ children }) => (
-    <h1 className="font-display text-4xl font-bold tracking-tight text-ink leading-tight mb-6 mt-12 first:mt-0">
+    <h1 className="font-display text-4xl font-bold tracking-tight text-ink leading-tight mb-6 mt-12 first:mt-0 text-balance">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="font-display text-3xl font-bold tracking-tight text-ink leading-snug mb-4 mt-14 pt-10 border-t border-hairline first:mt-0 first:pt-0 first:border-0">
+    <h2 className="font-display text-3xl font-bold tracking-tight text-ink leading-snug mb-4 mt-14 pt-10 border-t border-hairline first:mt-0 first:pt-0 first:border-0 text-balance">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="font-display text-xl font-bold tracking-tight text-ink leading-snug mb-3 mt-8">
+    <h3 className="font-display text-xl font-bold tracking-tight text-ink leading-snug mb-3 mt-8 text-balance">
       {children}
     </h3>
   ),
@@ -27,10 +27,8 @@ const components: MDXComponents = {
   ),
   li: ({ children }) => <li className="text-base leading-relaxed">{children}</li>,
   blockquote: ({ children }) => (
-    <blockquote className="my-10 py-6 border-t border-b border-hairline">
-      <p className="font-display text-2xl font-bold text-ink leading-snug max-w-[32ch]">
-        {children}
-      </p>
+    <blockquote className="my-10 py-6 border-t border-b border-hairline [&>p]:font-display [&>p]:text-2xl [&>p]:font-bold [&>p]:text-ink [&>p]:leading-snug [&>p]:max-w-[32ch] [&>p]:text-balance [&>p]:mb-0">
+      {children}
     </blockquote>
   ),
   strong: ({ children }) => (

@@ -32,12 +32,13 @@ export default async function JournalEntryPage({ params }: Props) {
   const { default: Content } = await import(`@/content/orion/${slug}.mdx`)
 
   return (
+    <div className="orion-dark">
     <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Breadcrumb */}
       <nav className="mb-10">
         <Link
           href="/orion"
-          className="text-sm font-medium text-muted hover:text-ink transition-colors"
+          className="text-sm font-medium text-muted hover:text-primary transition-colors"
         >
           ← Orion
         </Link>
@@ -60,7 +61,7 @@ export default async function JournalEntryPage({ params }: Props) {
             </span>
           )}
         </div>
-        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink leading-[1.1] mb-4 text-balance">
           {entry.title}
         </h1>
         <p className="text-base text-body leading-relaxed">{entry.description}</p>
@@ -74,6 +75,7 @@ export default async function JournalEntryPage({ params }: Props) {
       <article className="field-log max-w-[68ch]">
         <Content />
       </article>
+    </div>
     </div>
   )
 }
